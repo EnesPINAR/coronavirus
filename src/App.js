@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Header from "./components/Header";
+import AboutCoronavirus from "./components/AboutCoronavirus";
+import TopCountries from "./components/TopCountries";
+import AboutMe from "./components/AboutMe";
+import "./css/style.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+
+      <Header />
+
+      <Switch>
+        <Route path="/Home" component={App}></Route>
+        <Route path="/about-coronavirus" component={AboutCoronavirus}></Route>
+        <Route path="/top-countries" component={TopCountries}></Route>
+        <Route path="/about-me" component={AboutMe}></Route>
+      </Switch>
+
+    </Router>
   );
 }
 
